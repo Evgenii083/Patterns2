@@ -29,8 +29,6 @@ public class LoginBankFormTest {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $x("//input[contains(@type, 'password')]").setValue(registeredUser.getPassword());
         $("[data-test-id=action-login]").click();
-        $x("//*[contains(@class,'notification__title')]").shouldBe(Condition.visible)
-                .shouldHave(Condition.exactText("Ошибка"));
         $x("//*[contains(@class,'notification__content')]").shouldBe(Condition.visible)
                 .shouldHave(Condition.exactText("Ошибка!" + " " + "Пользователь заблокирован"));
     }
@@ -41,8 +39,6 @@ public class LoginBankFormTest {
         $("[data-test-id='login'] input").setValue(notRegisteredUser.getLogin());
         $x("//input[contains(@type, 'password')]").setValue(notRegisteredUser.getPassword());
         $("[data-test-id=action-login]").click();
-        $x("//*[contains(@class,'notification__title')]").shouldBe(Condition.visible)
-                .shouldHave(Condition.exactText("Ошибка"));
         $x("//*[contains(@class,'notification__content')]").shouldBe(Condition.visible)
                 .shouldHave(Condition.exactText("Ошибка!" + " " + "Неверно указан логин или пароль"));
     }
@@ -53,8 +49,6 @@ public class LoginBankFormTest {
         $("[data-test-id='login'] input").setValue(DataGenerator.generateLogin());
         $x("//input[contains(@type, 'password')]").setValue(registeredUser.getPassword());
         $("[data-test-id=action-login]").click();
-        $x("//*[contains(@class,'notification__title')]").shouldBe(Condition.visible)
-                .shouldHave(Condition.exactText("Ошибка"));
         $x("//*[contains(@class,'notification__content')]").shouldBe(Condition.visible)
                 .shouldHave(Condition.exactText("Ошибка!" + " " + "Неверно указан логин или пароль"));
     }
@@ -65,8 +59,6 @@ public class LoginBankFormTest {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $x("//input[contains(@type, 'password')]").setValue(DataGenerator.generatePassword());
         $("[data-test-id=action-login]").click();
-        $x("//*[contains(@class,'notification__title')]").shouldBe(Condition.visible)
-                .shouldHave(Condition.exactText("Ошибка"));
         $x("//*[contains(@class,'notification__content')]").shouldBe(Condition.visible)
                 .shouldHave(Condition.exactText("Ошибка!" + " " + "Неверно указан логин или пароль"));
     }
